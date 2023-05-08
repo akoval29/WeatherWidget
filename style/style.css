@@ -1,0 +1,115 @@
+@import url("normalize.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: linear-gradient(to bottom left, #a596e8, white) no-repeat;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.main__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.inputBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  max-width: 500px;
+}
+.inputBlock__input {
+  max-width: 250px;
+  border-radius: 5px;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid rgb(93, 66, 214);
+  box-shadow: 0 0 5px #cccccc;
+  transition: box-shadow 0.3s ease;
+}
+.inputBlock__input::-moz-placeholder {
+  color: #999;
+  font-style: italic;
+}
+.inputBlock__input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+.inputBlock__input:focus {
+  box-shadow: 0 0 10px rgb(93, 66, 214);
+  border: 1px solid transparent;
+  outline: none;
+}
+.inputBlock__selected {
+  text-align: left;
+  max-width: 200px;
+  font-size: 10px;
+}
+.inputBlock__go {
+  width: 60px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: rgb(93, 66, 214);
+  transition: scale 0.3s ease-in-out;
+}
+.inputBlock__go:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.inputBlock__go:active {
+  transform: scale(1);
+}
+
+.outputBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  max-width: 500px;
+  margin: 10px;
+}
+.outputBlock__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  text-align: center;
+  min-height: 100px;
+  width: 100%;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: black;
+}
+.outputBlock__start, .outputBlock__mid, .outputBlock__end {
+  margin: 5px;
+}
+.outputBlock__temp {
+  font-weight: bold;
+  font-size: 40px;
+}
+.outputBlock__city {
+  font-size: 20px;
+  font-weight: bold;
+}
+.outputBlock__img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 70px;
+}
+.outputBlock__bottom {
+  min-height: 600px;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: gray;
+}/*# sourceMappingURL=style.css.map */

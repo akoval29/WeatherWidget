@@ -1,0 +1,122 @@
+@import url("normalize.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+$theme-color: rgb(93, 66, 214); // <=  Theme change feature !
+
+.main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: linear-gradient(
+      to bottom left,
+      (lighten($theme-color, 20%)),
+      white
+    )
+    no-repeat;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  user-select: none; // user cannot select text
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+.inputBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  max-width: 500px;
+
+  &__input {
+    max-width: 250px;
+    border-radius: 5px;
+    height: 30px;
+    padding: 5px;
+
+    border: 1px solid $theme-color;
+    box-shadow: 0 0 5px #cccccc;
+    transition: box-shadow 0.3s ease;
+    &::placeholder {
+      color: #999;
+      font-style: italic;
+    }
+    &:focus {
+      box-shadow: 0 0 10px $theme-color;
+      border: 1px solid transparent;
+      outline: none;
+    }
+  }
+
+  &__selected {
+    text-align: left;
+    max-width: 200px;
+    font-size: 10px;
+  }
+  &__go {
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: $theme-color;
+    transition: scale 0.3s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+    &:active {
+      transform: scale(1);
+    }
+  }
+}
+
+.outputBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  max-width: 500px;
+  margin: 10px;
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    text-align: center;
+    min-height: 100px;
+    width: 100%;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: black;
+  }
+  &__start,
+  &__mid,
+  &__end {
+    margin: 5px;
+  }
+  &__temp {
+    font-weight: bold;
+    font-size: 40px;
+  }
+  &__city {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  &__img {
+    object-fit: cover;
+    width: 70px;
+  }
+
+  &__bottom {
+    min-height: 600px;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: gray;
+  }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="test" />
+    <title>Weather</title>
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body class="main">
+    <section class="main__wrap">
+      <br class="inputBlock">
+        <div class="inputBlock__wrap">
+          <input
+          class="inputBlock__input"
+          type="text"
+          name="region"
+          placeholder="city"
+          />
+          <button class="inputBlock__go">Go</button></br>
+        </div>
+        <div class="inputBlock__selected">Selected: none</div>
+      </article>
+
+      <article class="outputBlock">
+        <div class="outputBlock__top">
+          <div class="outputBlock__start"></div>
+          <div class="outputBlock__mid"></div>
+          <div class="outputBlock__end"></div>
+        </div>
+        <div class="outputBlock__bottom"></div>
+      </article>
+    </section>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="js/script.js"></script>
+  </body>
+</html>
