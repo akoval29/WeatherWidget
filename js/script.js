@@ -8,19 +8,13 @@ const outTopEnd = document.querySelector(".outputBlock__end");
 
 const outBottom = document.querySelector(".outputBlock__bottom");
 
-let lastCity = null;
-searchBtn.addEventListener("click", async () => {
+let lastCity = null; // уникнути повторних запитів на сервер 1/3
+async function getWeather(requestType, city) {
   const apiKey = "8018cfbdc94ba8e035065ccbf8eec87c";
-  const requestType = "weather";
-  const city = cityInput.value;
 
-  if (!city) {
+  if (!city || (lastCity && lastCity === city)) {
     return;
-  }
-
-  if (lastCity && lastCity === city) {
-    return;
-  }
+  } // уникнути повторних запитів на сервер 2/3
 
   try {
     const response = await axios.get(
@@ -28,12 +22,36 @@ searchBtn.addEventListener("click", async () => {
     );
 
     onRequest(response.data);
-    lastCity = city;
+    lastCity = city; // уникнути повторних запитів на сервер 3/3
+    cityInput.value = "";
   } catch (error) {
+    onError();
     console.error(error);
     throw error;
   }
+}
+
+// перший старт - Київ
+document.addEventListener("DOMContentLoaded", () => {
+  getWeather("weather", "kyiv");
 });
+
+// пошук із значення в інпуті
+searchBtn.addEventListener("click", () => {
+  const city = cityInput.value;
+  getWeather("weather", city);
+});
+
+// помилка
+function onError() {
+  cityInput.value = "ERROR";
+  cityInput.style.fontWeight = "bold";
+  cityInput.style.backgroundColor = "red";
+  setTimeout(() => {
+    cityInput.style.removeProperty("background-color");
+    cityInput.value = "";
+  }, 1000);
+}
 
 function onRequest(data) {
   const temperature = Math.round(data.main.temp - 273.15);

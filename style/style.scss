@@ -1,7 +1,7 @@
 @import url("normalize.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-$theme-color: rgb(93, 66, 214); // <=  Theme change feature !
+$theme-color: rgb(71, 214, 66); // <=  Theme change feature !
 
 .main {
   display: flex;
@@ -37,13 +37,16 @@ $theme-color: rgb(93, 66, 214); // <=  Theme change feature !
     border-radius: 5px;
     height: 30px;
     padding: 5px;
-
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     border: 1px solid $theme-color;
     box-shadow: 0 0 5px #cccccc;
-    transition: box-shadow 0.3s ease;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
     &::placeholder {
       color: #999;
       font-style: italic;
+      text-transform: none;
     }
     &:focus {
       box-shadow: 0 0 10px $theme-color;
@@ -53,16 +56,16 @@ $theme-color: rgb(93, 66, 214); // <=  Theme change feature !
   }
 
   &__selected {
-    text-align: left;
-    max-width: 200px;
     font-size: 10px;
   }
   &__go {
     width: 60px;
     height: 30px;
-    border-radius: 5px;
+    border-radius: 7px;
     background-color: $theme-color;
     transition: scale 0.3s ease-in-out;
+    color: white;
+    font-weight: bold;
     &:hover {
       cursor: pointer;
       transform: scale(1.05);
@@ -92,20 +95,19 @@ $theme-color: rgb(93, 66, 214); // <=  Theme change feature !
     padding: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-color: black;
+    background-color: $theme-color;
   }
   &__start,
   &__mid,
   &__end {
-    margin: 5px;
+    margin: 0 15px;
+    font-weight: bold;
   }
   &__temp {
-    font-weight: bold;
     font-size: 40px;
   }
   &__city {
     font-size: 20px;
-    font-weight: bold;
   }
   &__img {
     object-fit: cover;
@@ -117,6 +119,7 @@ $theme-color: rgb(93, 66, 214); // <=  Theme change feature !
     width: 100%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    background-color: gray;
+    background-color: $theme-color;
+    opacity: 0.6;
   }
 }

@@ -4,7 +4,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  background: linear-gradient(to bottom left, #a596e8, white) no-repeat;
+  background: linear-gradient(to bottom left, #99e896, white) no-repeat;
   font-family: "Poppins", sans-serif;
   height: 100vh;
   -webkit-user-select: none;
@@ -31,34 +31,39 @@
   border-radius: 5px;
   height: 30px;
   padding: 5px;
-  border: 1px solid rgb(93, 66, 214);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid rgb(71, 214, 66);
   box-shadow: 0 0 5px #cccccc;
-  transition: box-shadow 0.3s ease;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 .inputBlock__input::-moz-placeholder {
   color: #999;
   font-style: italic;
+  text-transform: none;
 }
 .inputBlock__input::placeholder {
   color: #999;
   font-style: italic;
+  text-transform: none;
 }
 .inputBlock__input:focus {
-  box-shadow: 0 0 10px rgb(93, 66, 214);
+  box-shadow: 0 0 10px rgb(71, 214, 66);
   border: 1px solid transparent;
   outline: none;
 }
 .inputBlock__selected {
-  text-align: left;
-  max-width: 200px;
   font-size: 10px;
 }
 .inputBlock__go {
   width: 60px;
   height: 30px;
-  border-radius: 5px;
-  background-color: rgb(93, 66, 214);
+  border-radius: 7px;
+  background-color: rgb(71, 214, 66);
   transition: scale 0.3s ease-in-out;
+  color: white;
+  font-weight: bold;
 }
 .inputBlock__go:hover {
   cursor: pointer;
@@ -88,18 +93,17 @@
   padding: 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: black;
+  background-color: rgb(71, 214, 66);
 }
 .outputBlock__start, .outputBlock__mid, .outputBlock__end {
-  margin: 5px;
+  margin: 0 15px;
+  font-weight: bold;
 }
 .outputBlock__temp {
-  font-weight: bold;
   font-size: 40px;
 }
 .outputBlock__city {
   font-size: 20px;
-  font-weight: bold;
 }
 .outputBlock__img {
   -o-object-fit: cover;
@@ -111,5 +115,6 @@
   width: 100%;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  background-color: gray;
+  background-color: rgb(71, 214, 66);
+  opacity: 0.6;
 }/*# sourceMappingURL=style.css.map */
