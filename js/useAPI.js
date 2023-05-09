@@ -1,5 +1,5 @@
-import { onError } from "./script.js";
 import { cityInput } from "./script.js";
+import { onError } from "./script.js";
 
 const apiKey = "8018cfbdc94ba8e035065ccbf8eec87c";
 
@@ -33,7 +33,7 @@ export async function getWeatherBottom(city) {
       `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`
     );
     lastCity2 = city; // уникнути повторних запитів на сервер 3/3
-    cityInput.value = "";
+    cityInput.value = ""; // очистити інпут піся отримання даних з сервера
     return response;
   } catch (error) {
     onError();

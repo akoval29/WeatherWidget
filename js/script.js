@@ -3,9 +3,9 @@ import { getWeatherBottom } from "./useAPI.js";
 
 const main = document.querySelector(".main");
 export const cityInput = document.querySelector(".inputBlock__input");
+const cross = document.querySelector(".inputBlock__cross");
 const selected = document.querySelector(".inputBlock__selected");
 const searchBtn = document.querySelector(".inputBlock__btn");
-
 const outTop = document.querySelector(".outputBlock__top");
 const outBottom = document.querySelector(".outputBlock__bottom");
 
@@ -95,7 +95,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const resBottom = await getWeatherBottom("kyiv");
   onRequestTop(resTop.data);
   onRequestBottom(resBottom.data);
-
   // console.log("first start - top");
   // console.log(resTop.data);
   // console.log("first start - bottom");
@@ -108,6 +107,10 @@ searchBtn.addEventListener("click", async () => {
   const resBottom = await getWeatherBottom(cityInput.value);
   onRequestTop(resTop.data);
   onRequestBottom(resBottom.data);
+  // console.log("search - top");
+  // console.log(resTop.data);
+  // console.log("search - bottom");
+  // console.log(resBottom.data);
 });
 
 // інпут реагує на клавішу ENTER
@@ -123,7 +126,7 @@ main.addEventListener("click", () => {
   cityInput.focus();
 });
 
-// помилка
+// помилка в інпуті
 export function onError() {
   cityInput.value = "ERROR";
   cityInput.style.fontWeight = "bold";
@@ -133,3 +136,8 @@ export function onError() {
     cityInput.value = "";
   }, 1000);
 }
+
+// чистим інпут хрестиком
+cross.addEventListener("click", () => {
+  cityInput.value = "";
+});
