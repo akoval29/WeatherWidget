@@ -1,5 +1,6 @@
 @import url("normalize.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 
 $theme-color: rgb(66, 113, 214); // <=  Theme change feature !
 
@@ -7,13 +8,13 @@ $theme-color: rgb(66, 113, 214); // <=  Theme change feature !
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  font-family: "Roboto", sans-serif;
   background: linear-gradient(
       to bottom left,
       (lighten($theme-color, 20%)),
       white
     )
     no-repeat;
-  font-family: "Poppins", sans-serif;
   height: 100vh;
   user-select: none; // user cannot select text
   &__wrap {
@@ -26,6 +27,8 @@ $theme-color: rgb(66, 113, 214); // <=  Theme change feature !
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
   margin: 10px;
 
   &__input {
@@ -34,7 +37,6 @@ $theme-color: rgb(66, 113, 214); // <=  Theme change feature !
     padding: 5px;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 1px;
     border: 1px solid $theme-color;
     border-radius: 5px;
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
@@ -109,7 +111,7 @@ $theme-color: rgb(66, 113, 214); // <=  Theme change feature !
     font-size: 40px;
   }
   &__city {
-    font-size: 20px;
+    font-size: 30px;
   }
   &__img {
     object-fit: cover;
