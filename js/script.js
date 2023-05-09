@@ -19,42 +19,70 @@ function onRequestTop(data) {
   const weatherDescr = data.weather[0].description;
 
   selected.innerHTML = `Selected: ${cityName}, ${countryName}`;
-
   outTopStart.innerHTML = `
     <p class="outputBlock__temp">${temperature}°C</p>
     <p class="outputBlock__feels">Feels like ${temperatureFeels}°C</p>
   `;
-
   outTopMid.innerHTML = `
     <p class="outputBlock__city">${cityName}</p>
     <p>${weatherDescr}</p>
   `;
-
   outTopEnd.innerHTML = `<img class="outputBlock__img" src="http://openweathermap.org/img/w/${weatherIcon}.png" alt="weather icon">`;
 }
 
-// function onRequestBottom(data) {
-//   console.log("bottom");
-//   console.log(resBottom.data);
-// }
+function onRequestBottom(data) {
+  let totalDayOfWeek = [];
+  let totalformattedDate = [];
+  let totalIcon = [];
+  let totalDescr = [];
+  let totalTempMin = [];
+  let totalTempMax = [];
+
+  for (let i = 0; i < data.list.length; i++) {
+    const item = data.list[i];
+
+    // отримуємо дату з Unix timestamp
+    const date = new Date(item.dt * 1000);
+    const dayOfWeek = date.toLocaleString("en-US", { weekday: "long" });
+    const formattedDate = date.toLocaleDateString("en-GB");
+
+    // формуємо ВСІ дані виходячи з унікальності рядка "день тижня"
+    if (!totalDayOfWeek.includes(dayOfWeek)) {
+      totalDayOfWeek.push(dayOfWeek);
+      totalformattedDate.push(formattedDate);
+      totalIcon.push(item.weather[0].icon);
+      totalDescr.push(item.weather[0].description);
+      totalTempMin.push(Math.round(item.main.temp_min - 273.15));
+      totalTempMax.push(Math.round(item.main.temp_max - 273.15));
+    }
+  }
+  console.log(totalDayOfWeek);
+  console.log(totalformattedDate);
+  console.log(totalIcon);
+  console.log(totalDescr);
+  console.log(totalTempMin);
+  console.log(totalTempMax);
+}
 
 // перший старт - Київ
 document.addEventListener("DOMContentLoaded", async () => {
   const resTop = await getWeatherTop("kyiv");
+  const resBottom = await getWeatherBottom("kyiv");
   onRequestTop(resTop.data);
+  onRequestBottom(resBottom.data);
+
   console.log("top");
   console.log(resTop.data);
-
-  const resBottom = await getWeatherBottom("kyiv");
-  // onRequestBottom(resBottom.data);
   console.log("bottom");
   console.log(resBottom.data);
 });
 
 // пошук
-searchBtn.addEventListener("click", () => {
-  // getWeatherTop(cityInput.value);
-  // getWeatherBottom(cityInput.value);
+searchBtn.addEventListener("click", async () => {
+  const resTop = await getWeatherTop(cityInput.value);
+  onRequestTop(resTop.data);
+  const resBottom = await getWeatherBottom(cityInput.value);
+  onRequestBottom(resBottom.data);
 });
 
 // інпут реагує на клавішу ENTER

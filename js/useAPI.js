@@ -2,9 +2,9 @@ import { onError } from "./script.js";
 import { cityInput } from "./script.js";
 
 const apiKey = "8018cfbdc94ba8e035065ccbf8eec87c";
-let lastCity1 = null; // уникнути повторних запитів на сервер 1/3
 
 // top block
+let lastCity1 = null; // уникнути повторних запитів на сервер 1/3
 export async function getWeatherTop(city) {
   if (!city || (lastCity1 && lastCity1 === city)) {
     return;
