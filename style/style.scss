@@ -1,7 +1,7 @@
 @import url("normalize.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-$theme-color: rgb(71, 214, 66); // <=  Theme change feature !
+$theme-color: rgb(66, 113, 214); // <=  Theme change feature !
 
 .main {
   display: flex;
@@ -18,22 +18,20 @@ $theme-color: rgb(71, 214, 66); // <=  Theme change feature !
   user-select: none; // user cannot select text
   &__wrap {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
   }
 }
 
 .inputBlock {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
   margin: 10px;
   max-width: 500px;
 
   &__input {
-    max-width: 250px;
+    width: 350px;
     border-radius: 5px;
     height: 30px;
     padding: 5px;
@@ -41,12 +39,13 @@ $theme-color: rgb(71, 214, 66); // <=  Theme change feature !
     text-transform: uppercase;
     letter-spacing: 1px;
     border: 1px solid $theme-color;
-    box-shadow: 0 0 5px #cccccc;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
     transition: background-color 0.5s ease, box-shadow 0.5s ease;
     &::placeholder {
       color: #999;
       font-style: italic;
       text-transform: none;
+      opacity: 0.5;
     }
     &:focus {
       box-shadow: 0 0 10px $theme-color;
@@ -57,8 +56,12 @@ $theme-color: rgb(71, 214, 66); // <=  Theme change feature !
 
   &__selected {
     font-size: 10px;
+    font-style: italic;
+    font-weight: bold;
+    text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+    margin: 3px;
   }
-  &__go {
+  &__btn {
     width: 60px;
     height: 30px;
     border-radius: 7px;
@@ -66,6 +69,7 @@ $theme-color: rgb(71, 214, 66); // <=  Theme change feature !
     transition: scale 0.3s ease-in-out;
     color: white;
     font-weight: bold;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
     &:hover {
       cursor: pointer;
       transform: scale(1.05);
@@ -84,6 +88,7 @@ $theme-color: rgb(71, 214, 66); // <=  Theme change feature !
   color: white;
   max-width: 500px;
   margin: 10px;
+
   &__top {
     display: flex;
     align-items: center;
@@ -95,6 +100,7 @@ $theme-color: rgb(71, 214, 66); // <=  Theme change feature !
     padding: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
     background-color: $theme-color;
   }
   &__start,
@@ -115,10 +121,11 @@ $theme-color: rgb(71, 214, 66); // <=  Theme change feature !
   }
 
   &__bottom {
-    min-height: 600px;
-    width: 100%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+    min-height: 400px;
+    width: 100%;
     background-color: $theme-color;
     opacity: 0.6;
   }
