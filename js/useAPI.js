@@ -14,7 +14,6 @@ export async function getWeatherTop(city) {
       `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
     );
     lastCity1 = city; // уникнути повторних запитів на сервер 3/3
-    cityInput.value = "";
     return response;
   } catch (error) {
     onError();

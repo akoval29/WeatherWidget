@@ -11,10 +11,6 @@
      -moz-user-select: none;
           user-select: none;
 }
-.main__wrap {
-  display: flex;
-  flex-direction: column;
-}
 
 .inputBlock {
   display: flex;
@@ -22,17 +18,16 @@
   justify-content: center;
   flex-direction: column;
   margin: 10px;
-  max-width: 500px;
 }
 .inputBlock__input {
   width: 350px;
-  border-radius: 5px;
   height: 30px;
   padding: 5px;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
   border: 1px solid rgb(66, 113, 214);
+  border-radius: 5px;
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
   transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
@@ -40,17 +35,16 @@
   color: #999;
   font-style: italic;
   text-transform: none;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 .inputBlock__input::placeholder {
   color: #999;
   font-style: italic;
   text-transform: none;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 .inputBlock__input:focus {
   box-shadow: 0 0 10px rgb(66, 113, 214);
-  border: 1px solid transparent;
   outline: none;
 }
 .inputBlock__selected {
@@ -61,7 +55,7 @@
   margin: 3px;
 }
 .inputBlock__btn {
-  width: 60px;
+  width: 50px;
   height: 30px;
   border-radius: 7px;
   background-color: rgb(66, 113, 214);
@@ -84,7 +78,6 @@
   justify-content: center;
   flex-direction: column;
   color: white;
-  max-width: 500px;
   margin: 10px;
 }
 .outputBlock__top {
@@ -93,8 +86,7 @@
   justify-content: space-between;
   flex-direction: row;
   text-align: center;
-  min-height: 100px;
-  width: 100%;
+  min-height: 90px;
   padding: 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -114,14 +106,25 @@
 .outputBlock__img {
   -o-object-fit: cover;
      object-fit: cover;
-  width: 70px;
+  width: 60px;
 }
 .outputBlock__bottom {
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  flex-direction: column;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  padding: 15px;
   box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
   min-height: 400px;
   width: 100%;
   background-color: rgb(66, 113, 214);
   opacity: 0.6;
+}
+.outputBlock__days {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
 }/*# sourceMappingURL=style.css.map */

@@ -5,9 +5,8 @@ const main = document.querySelector(".main");
 export const cityInput = document.querySelector(".inputBlock__input");
 const selected = document.querySelector(".inputBlock__selected");
 const searchBtn = document.querySelector(".inputBlock__btn");
-const outTopStart = document.querySelector(".outputBlock__start");
-const outTopMid = document.querySelector(".outputBlock__mid");
-const outTopEnd = document.querySelector(".outputBlock__end");
+
+const outTop = document.querySelector(".outputBlock__top");
 const outBottom = document.querySelector(".outputBlock__bottom");
 
 function onRequestTop(data) {
@@ -19,15 +18,20 @@ function onRequestTop(data) {
   const weatherDescr = data.weather[0].description;
 
   selected.innerHTML = `Selected: ${cityName}, ${countryName}`;
-  outTopStart.innerHTML = `
-    <p class="outputBlock__temp">${temperature}°C</p>
-    <p class="outputBlock__feels">Feels like ${temperatureFeels}°C</p>
+
+  outTop.innerHTML = `
+    <div class="outputBlock__start">
+      <p class="outputBlock__temp">${temperature}°C</p>
+      <p class="outputBlock__feels">Feels like ${temperatureFeels}°C</p>
+    </div>
+    <div class="outputBlock__mid">
+      <p class="outputBlock__city">${cityName}</p>
+      <p>${weatherDescr}</p>
+    </div>
+    <div class="outputBlock__end">
+      <img class="outputBlock__img" src="http://openweathermap.org/img/w/${weatherIcon}.png" alt="weather icon">
+    </div>
   `;
-  outTopMid.innerHTML = `
-    <p class="outputBlock__city">${cityName}</p>
-    <p>${weatherDescr}</p>
-  `;
-  outTopEnd.innerHTML = `<img class="outputBlock__img" src="http://openweathermap.org/img/w/${weatherIcon}.png" alt="weather icon">`;
 }
 
 function onRequestBottom(data) {
@@ -44,9 +48,9 @@ function onRequestBottom(data) {
     // отримуємо дату з Unix timestamp
     const date = new Date(item.dt * 1000);
     const dayOfWeek = date.toLocaleString("en-US", { weekday: "long" });
-    const formattedDate = date.toLocaleDateString("en-GB");
+    const formattedDate = date.toLocaleDateString("uk-UA");
 
-    // формуємо ВСІ дані виходячи з унікальності рядка "день тижня"
+    // формуємо масиви ВСІХ даних виходячи з "унікальності" рядка "дата"
     if (!totalDayOfWeek.includes(dayOfWeek)) {
       totalDayOfWeek.push(dayOfWeek);
       totalformattedDate.push(formattedDate);
@@ -56,12 +60,33 @@ function onRequestBottom(data) {
       totalTempMax.push(Math.round(item.main.temp_max - 273.15));
     }
   }
-  console.log(totalDayOfWeek);
-  console.log(totalformattedDate);
-  console.log(totalIcon);
-  console.log(totalDescr);
-  console.log(totalTempMin);
-  console.log(totalTempMax);
+  // console.log(totalDayOfWeek);
+  // console.log(totalformattedDate);
+  // console.log(totalIcon);
+  // console.log(totalDescr);
+  // console.log(totalTempMin);
+  // console.log(totalTempMax);
+
+  // формуємо верстку (хоча це можна було зробити і в попередньому циклі :) )
+  outBottom.innerHTML = "";
+  for (let i = 0; i < totalDayOfWeek.length; i++) {
+    outBottom.innerHTML += `
+      <div class="outputBlock__days Day${i + 1}:${totalDayOfWeek[i]}">
+        <div class="outputBlock__days-wrap">
+          <p>${totalDayOfWeek[i]}</p>
+          <p>${totalformattedDate[i]}</p>
+        </div>
+        <img class="outputBlock__img" src="http://openweathermap.org/img/w/${
+          totalIcon[i]
+        }.png" alt="weather icon">
+        <p>${totalDescr[i]}</p>
+        <div class="outputBlock__temper-wrap">
+          <p>min: ${totalTempMin[i]}°C</p>
+          <p>max: ${totalTempMax[i]}°C</p>
+        </div>
+      </div>
+    `;
+  }
 }
 
 // перший старт - Київ
@@ -71,17 +96,17 @@ document.addEventListener("DOMContentLoaded", async () => {
   onRequestTop(resTop.data);
   onRequestBottom(resBottom.data);
 
-  console.log("top");
-  console.log(resTop.data);
-  console.log("bottom");
-  console.log(resBottom.data);
+  // console.log("first start - top");
+  // console.log(resTop.data);
+  // console.log("first start - bottom");
+  // console.log(resBottom.data);
 });
 
 // пошук
 searchBtn.addEventListener("click", async () => {
   const resTop = await getWeatherTop(cityInput.value);
-  onRequestTop(resTop.data);
   const resBottom = await getWeatherBottom(cityInput.value);
+  onRequestTop(resTop.data);
   onRequestBottom(resBottom.data);
 });
 
