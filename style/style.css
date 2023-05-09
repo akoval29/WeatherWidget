@@ -11,6 +11,9 @@
      -moz-user-select: none;
           user-select: none;
 }
+.main__wrap {
+  max-width: 450px;
+}
 
 .inputBlock {
   display: flex;
@@ -85,6 +88,7 @@
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
+  width: 100%;
   text-align: center;
   min-height: 90px;
   padding: 10px;

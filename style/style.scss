@@ -16,6 +16,9 @@ $theme-color: rgb(66, 113, 214); // <=  Theme change feature !
   font-family: "Poppins", sans-serif;
   height: 100vh;
   user-select: none; // user cannot select text
+  &__wrap {
+    max-width: 450px;
+  }
 }
 
 .inputBlock {
@@ -87,6 +90,7 @@ $theme-color: rgb(66, 113, 214); // <=  Theme change feature !
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
+    width: 100%;
     text-align: center;
     min-height: 90px;
     padding: 10px;
