@@ -1,0 +1,162 @@
+@import url("normalize.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+
+$theme-color: rgb(118, 66, 214); // <=  Theme change feature !
+
+.main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(
+      to bottom left,
+      (lighten($theme-color, 20%)),
+      white
+    )
+    no-repeat;
+  height: 100vh;
+  user-select: none; // user cannot select text
+  &__wrap {
+    max-width: 450px;
+  }
+}
+
+.inputBlock {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+  margin: 10px;
+
+  &__input {
+    width: 350px;
+    height: 30px;
+    padding: 5px 20px 5px 5px;
+    text-align: center;
+    text-transform: uppercase;
+    opacity: 0.6;
+    border: 1px solid $theme-color;
+    border-radius: 5px;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    &::placeholder {
+      color: #999;
+      font-style: italic;
+      text-transform: none;
+      opacity: 0.6;
+    }
+    &:focus {
+      box-shadow: 0 0 10px $theme-color;
+      outline: none;
+    }
+  }
+
+  &__wrap {
+    position: relative;
+  }
+  &__cross {
+    position: absolute;
+    font-size: 13px;
+    font-weight: bold;
+    color: $theme-color;
+    top: 50%;
+    right: 16%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    &:hover {
+      transform: rotate(90deg) translateX(-80%);
+    }
+  }
+
+  &__selected {
+    font-size: 10px;
+    font-style: italic;
+    font-weight: bold;
+    text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+    margin: 3px;
+  }
+  &__btn {
+    width: 50px;
+    height: 30px;
+    border-radius: 7px;
+    background-color: $theme-color;
+    transition: scale 0.3s ease-in-out;
+    color: white;
+    font-weight: bold;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+    }
+    &:active {
+      transform: scale(1);
+    }
+  }
+}
+
+.outputBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  margin: 10px;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    text-align: center;
+    min-height: 90px;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+    background-color: $theme-color;
+  }
+  &__start,
+  &__mid,
+  &__end {
+    margin: 0 15px;
+    font-weight: bold;
+  }
+  &__temp {
+    font-size: 40px;
+  }
+  &__city {
+    font-size: 30px;
+  }
+  &__img {
+    object-fit: cover;
+    width: 60px;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    flex-direction: column;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 15px;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+    min-height: 400px;
+    width: 100%;
+    background-color: $theme-color;
+    opacity: 0.6;
+  }
+  &__days {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: 15px;
+    margin-bottom: 5px;
+  }
+}
