@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 
-$theme-color: rgb(167, 66, 214); // <=  Theme change feature !
+$theme-color: rgb(118, 66, 214); // <=  Theme change feature !
 
 .main {
   display: flex;
@@ -65,7 +65,11 @@ $theme-color: rgb(167, 66, 214); // <=  Theme change feature !
     top: 50%;
     right: 16%;
     transform: translateY(-50%);
+    transition: transform 0.3s ease;
     cursor: pointer;
+    &:hover {
+      transform: rotate(90deg) translateX(-80%);
+    }
   }
 
   &__selected {
