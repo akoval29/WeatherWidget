@@ -1,6 +1,8 @@
 import { getWeatherTop } from "./useAPI.js";
 import { getWeatherBottom } from "./useAPI.js";
 
+import "../style/style.scss";
+
 const main = document.querySelector(".main");
 export const cityInput = document.querySelector(".inputBlock__input");
 const cross = document.querySelector(".inputBlock__cross");
