@@ -11,7 +11,7 @@ export async function getWeatherTop(city) {
   } // уникнути пустих і повторних запитів на сервер 2/3
   try {
     const response = await axios.get(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
     );
     lastCity1 = city; // уникнути повторних запитів на сервер 3/3
     return response;
@@ -30,7 +30,7 @@ export async function getWeatherBottom(city) {
   } // уникнути пустих і повторних запитів на сервер 2/3
   try {
     const response = await axios.get(
-      `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`
     );
     lastCity2 = city; // уникнути повторних запитів на сервер 3/3
     cityInput.value = ""; // очистити інпут піся отримання даних з сервера
